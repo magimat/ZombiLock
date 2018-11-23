@@ -1,0 +1,204 @@
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>ZombiLock</title>
+    <link rel = "stylesheet" type = "text/css" href = "css/keypad.css" />
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="script/sevenSeg.js"></script>
+
+    <script>
+        window.onload = function() {
+
+            var clickSound = new Audio("click.wav");
+            var wrongSound = new Audio("wrong.wav");
+            var goodSound = new Audio("good.wav");
+
+            var value = ''
+
+
+            //preload mouse down image here via Image()
+            $("#keypad1").bind('touchstart', function(){
+                $("#keypad1").attr("src","img/1h.png");
+            }).bind('touchend', function(){
+                $("#keypad1").attr("src","img/1.png");
+            });
+
+            $("#keypad2").bind('touchstart', function(){
+                $("#keypad2").attr("src","img/2h.png");
+            }).bind('touchend', function(){
+                $("#keypad2").attr("src","img/2.png");
+            });
+
+            $("#keypad3").bind('touchstart', function(){
+                $("#keypad3").attr("src","img/3h.png");
+            }).bind('touchend', function(){
+                $("#keypad3").attr("src","img/3.png");
+            });
+
+            $("#keypad4").bind('touchstart', function(){
+                $("#keypad4").attr("src","img/4h.png");
+            }).bind('touchend', function(){
+                $("#keypad4").attr("src","img/4.png");
+            });
+
+            $("#keypad5").bind('touchstart', function(){
+                $("#keypad5").attr("src","img/5h.png");
+            }).bind('touchend', function(){
+                $("#keypad5").attr("src","img/5.png");
+            });
+
+            $("#keypad6").bind('touchstart', function(){
+                $("#keypad6").attr("src","img/6h.png");
+            }).bind('touchend', function(){
+                $("#keypad6").attr("src","img/6.png");
+            });
+
+            $("#keypad7").bind('touchstart', function(){
+                $("#keypad7").attr("src","img/7h.png");
+            }).bind('touchend', function(){
+                $("#keypad7").attr("src","img/7.png");
+            });
+
+            $("#keypad8").bind('touchstart', function(){
+                $("#keypad8").attr("src","img/8h.png");
+            }).bind('touchend', function(){
+                $("#keypad8").attr("src","img/8.png");
+            });
+
+            $("#keypad9").bind('touchstart', function(){
+                $("#keypad9").attr("src","img/9h.png");
+            }).bind('touchend', function(){
+                $("#keypad9").attr("src","img/9.png");
+            });
+
+            $("#keypad0").bind('touchstart', function(){
+                $("#keypad0").attr("src","img/0h.png");
+            }).bind('touchend', function(){
+                $("#keypad0").attr("src","img/0.png");
+            });
+
+            $("#keypadc").bind('touchstart', function(){
+                $("#keypadc").attr("src","img/ch.png");
+            }).bind('touchend', function(){
+                $("#keypadc").attr("src","img/c.png");
+            });
+
+            $("#keypade").bind('touchstart', function(){
+                $("#keypade").attr("src","img/eh.png");
+            }).bind('touchend', function(){
+                $("#keypade").attr("src","img/e.png");
+            });
+
+            $("#keypad1").bind('click', function(){ doClick(1); })
+            $("#keypad2").bind('click', function(){ doClick(2); })
+            $("#keypad3").bind('click', function(){ doClick(3); })
+            $("#keypad4").bind('click', function(){ doClick(4); })
+            $("#keypad5").bind('click', function(){ doClick(5); })
+            $("#keypad6").bind('click', function(){ doClick(6); })
+            $("#keypad7").bind('click', function(){ doClick(7); })
+            $("#keypad8").bind('click', function(){ doClick(8); })
+            $("#keypad9").bind('click', function(){ doClick(9); })
+            $("#keypad0").bind('click', function(){ doClick(0); })
+            $("#keypadc").bind('click', function(){ doClick('c'); })
+            $("#keypade").bind('click', function(){ doClick('e'); }) 
+
+            $("#okBtn").bind('click', function(){ $("#answer1").fadeOut(); }) 
+
+            function doClick(btn) {
+
+                if(btn == 'c') {
+                    value = ''
+                }
+                else if (btn == 'e') {
+                    if(value == '1234') {
+                        goodSound.play();
+                        $("#answer1").fadeIn(2000);
+                    }
+                    else {
+                        wrongSound.play();
+                    }
+                
+                }
+                else {
+                    value = value + btn.toString()
+                }
+
+                $("#codeDisplay").sevenSeg({ value: value });
+                clickSound.play();
+            }
+
+        }    
+    </script>
+
+</head>
+
+<body>
+
+    <div id='answer1'>
+        Bravo!<br><br>
+        Vous avez trouvé le code.<br><br>
+        Voici l'indice:<br><br> 
+        fdshfkjdf dfdshfkjsdhfsd fsc<br><br>
+        <div id='btnContainer'>
+            <div id='okBtn'>OK</div>
+        </div>
+    </div>
+
+
+    <div id="codeDisplay" class="codeDisplay"></div>
+   
+    <table id="tablepad" width=100%>
+        <tr>
+            <td  colspan=3>
+                    <img class="topimg" src="img/keypad_top.png" >
+            </td>
+        </tr>
+        <tr>
+            <td><img class="btn" id="keypad1" src="img/1.png" ></td>
+            <td><img class="btn" id="keypad2" src="img/2.png" ></td>
+            <td><img class="btn" id="keypad3" src="img/3.png" ></td>
+        </tr>
+        <tr>
+            <td><img class="btn" id="keypad4" src="img/4.png" ></td>
+            <td><img class="btn" id="keypad5" src="img/5.png" ></td>
+            <td><img class="btn" id="keypad6" src="img/6.png" ></td>
+        </tr>
+        <tr>
+            <td><img class="btn" id="keypad7" src="img/7.png" ></td>
+            <td><img class="btn" id="keypad8" src="img/8.png" ></td>
+            <td><img class="btn" id="keypad9" src="img/9.png" ></td>
+        </tr>
+        <tr>
+            <td><img class="btn" id="keypadc" src="img/c.png" ></td>
+            <td><img class="btn" id="keypad0" src="img/0.png" ></td>
+            <td><img class="btn" id="keypade" src="img/e.png" ></td>
+        </tr>
+
+    </table>
+
+
+
+    <script>
+        $("#codeDisplay").sevenSeg({ digits: 10, value: '1234' });
+    </script>
+
+
+<br><br>
+<audio controls >
+        <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+</body>
+    
+
+
+
+</html>
+
+
+

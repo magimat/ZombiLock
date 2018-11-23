@@ -1,0 +1,62 @@
+
+#answer1 {
+    font-size: 4em;
+    width: 660px;
+    height: 800px;
+    position: absolute;
+    padding: 1em;
+    top: 300;
+    left: 100;
+    background-color: #f4a742;
+    z-index: 10;
+}
+
+
+#okBtn {
+    display:inline-block;
+    color:#ccaf8a;
+    border:1px solid #CCC;
+    background:#4f3a1f;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    max-width: 100px;
+    padding: 5px;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    
+}
+
+
+#btnContainer {
+    text-align: center;
+    width: 100%;
+}
+
+#tablepad {
+    padding-top: 200px;
+}
+
+ .codeDisplay {
+    margin: auto;
+    width: 80%;
+    height: 100px;
+    padding: 100px;
+    padding-top: 330px;
+    position: absolute;
+    top: 0;
+    left: 0;
+ }
+
+.topimg {
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+}
+
+body {
+    background-color:black;
+}
