@@ -110,11 +110,15 @@
             $("#codeDisplay").sevenSeg({ digits: 10, value: '' });
 
             function doClick(btn) {
+                
+                clickSound.play();
+
                 if(btn == 'c') {
                     value = ''
                 }
                 else if (btn == 'e') {
                     if(value == '1234') {
+                        musicPlayer.pause()
                         goodSound.play();
                         $("#answer1").fadeIn(2000);
                     }
@@ -128,7 +132,7 @@
                 }
 
                 $("#codeDisplay").sevenSeg({ value: value });
-                clickSound.play();
+                
             }   
 
         }    
