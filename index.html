@@ -18,8 +18,6 @@
             var goodSound = new Audio("good.wav");
 
             var value = ''
-            var musicOn = false;
-
 
             //preload mouse down image here via Image()
             $("#keypad1").bind('touchstart', function(){
@@ -133,19 +131,24 @@
                 clickSound.play();
             }   
 
-            function toggleMusic() {
-                if(musicOn) {
-                    document.getElementById('musicPlayer').stop()
-                }
-                else {
-                    document.getElementById('musicPlayer').play()
-                }
-
-                musicOn = !musicOn;
-            }         
         }    
 
+        var musicPlayer = new Audio("music.mp3");
+        musicPlayer.loop = true;
 
+        var musicOn = false;
+
+
+        function toggleMusic() {
+            if(musicOn) {
+                musicPlayer.pause()
+            }
+            else {
+                musicPlayer.play()
+            }
+
+            musicOn = !musicOn;
+        } 
 
     </script>
 
