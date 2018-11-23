@@ -14,10 +14,11 @@
         window.onload = function() {
 
             var clickSound = new Audio("click.wav");
-            var wrongSound = new Audio("wrong.wav");
+            var wrongSound = new Audio("wrong.mp3");
             var goodSound = new Audio("good.wav");
 
             var value = ''
+            var musicOn = false;
 
 
             //preload mouse down image here via Image()
@@ -108,8 +109,9 @@
 
             $("#okBtn").bind('click', function(){ $("#answer1").fadeOut(); }) 
 
-            function doClick(btn) {
+            $("#codeDisplay").sevenSeg({ digits: 10, value: '' });
 
+            function doClick(btn) {
                 if(btn == 'c') {
                     value = ''
                 }
@@ -121,7 +123,7 @@
                     else {
                         wrongSound.play();
                     }
-                
+
                 }
                 else {
                     value = value + btn.toString()
@@ -129,26 +131,27 @@
 
                 $("#codeDisplay").sevenSeg({ value: value });
                 clickSound.play();
-            }
+            }   
 
+            function toggleMusic() {
+                if(musicOn) {
+                    document.getElementById('musicPlayer').stop()
+                }
+                else {
+                    document.getElementById('musicPlayer').play()
+                }
+
+                musicOn = !musicOn;
+            }         
         }    
+
+
+
     </script>
 
 </head>
 
 <body>
-
-    <div id='answer1'>
-        Bravo!<br><br>
-        Vous avez trouvé le code.<br><br>
-        Voici l'indice:<br><br> 
-        fdshfkjdf dfdshfkjsdhfsd fsc<br><br>
-        <div id='btnContainer'>
-            <div id='okBtn'>OK</div>
-        </div>
-    </div>
-
-
     <div id="codeDisplay" class="codeDisplay"></div>
    
     <table id="tablepad" width=100%>
@@ -180,17 +183,21 @@
 
     </table>
 
+    <div id='answer1'>
+            Bravo!<br><br>
+            Vous avez trouvé le code.<br><br>
+            Voici l'indice:<br><br> 
+            blablablabla blablablabla<br><br>
+            <div id='btnContainer'>
+                <div id='okBtn'>OK</div>
+            </div>
+    </div>
 
-
-    <script>
-        $("#codeDisplay").sevenSeg({ digits: 10, value: '1234' });
-    </script>
-
-
+    <audio loop>
+        <source id='musicPlayer' src="music.mp3" type="audio/mpeg">
+    </audio>
 <br><br>
-<audio controls >
-        <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <button id='musicBtn' onclick="toggleMusic()">Music</button>
 
 
 </body>

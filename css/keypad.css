@@ -5,12 +5,12 @@
     height: 800px;
     position: absolute;
     padding: 1em;
-    top: 300;
+    top: 150;
     left: 100;
     background-color: #f4a742;
     z-index: 10;
+    display: none;
 }
-
 
 #okBtn {
     display:inline-block;
@@ -28,6 +28,9 @@
     
 }
 
+#musicBtn {
+    font-size: 3em;
+}
 
 #btnContainer {
     text-align: center;
@@ -35,7 +38,7 @@
 }
 
 #tablepad {
-    padding-top: 200px;
+    padding-top: 50px;
 }
 
  .codeDisplay {
@@ -43,7 +46,7 @@
     width: 80%;
     height: 100px;
     padding: 100px;
-    padding-top: 330px;
+    padding-top: 180px;
     position: absolute;
     top: 0;
     left: 0;
