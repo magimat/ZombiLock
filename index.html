@@ -16,6 +16,10 @@
             var clickSound = new Audio("click.wav");
             var wrongSound = new Audio("wrong.mp3");
             var goodSound = new Audio("good.wav");
+            var msgSound = new Audio("msg.wav");
+
+            msgSound.onended = function(){$("#codeText").css({"display":"block"});};
+
 
             var value = ''
 
@@ -105,7 +109,8 @@
             $("#keypadc").bind('click', function(){ doClick('c'); })
             $("#keypade").bind('click', function(){ doClick('e'); }) 
 
-            $("#okBtn").bind('click', function(){ $("#answer1").fadeOut(); }) 
+            $("#playBtn").bind('click', function(){ msgSound.play() }) 
+            $("#closeBtn").bind('click', function(){ $("#answer1").fadeOut(); }) 
 
             $("#codeDisplay").sevenSeg({ digits: 10, value: '' });
 
@@ -117,7 +122,7 @@
                     value = ''
                 }
                 else if (btn == 'e') {
-                    if(value == '1234') {
+                    if(value == '2114143114') {
                         musicPlayer.pause()
                         goodSound.play();
                         $("#answer1").fadeIn(2000);
@@ -192,11 +197,17 @@
 
     <div id='answer1'>
             Bravo!<br><br>
-            Vous avez trouvé le code.<br><br>
-            Voici l'indice:<br><br> 
-            blablablabla blablablabla<br><br>
+            Vous avez trouvé le bon numéro.<br><br>
+            
             <div id='btnContainer'>
-                <div id='okBtn'>OK</div>
+                <div id='playBtn'>Écouter le message</div>
+            </div>
+            <br>
+            <div id='codeText'>Code: 23568</div>
+
+            <br>
+            <div id='btnContainer'>
+                <div id='closeBtn'>Fermer</div>
             </div>
     </div>
 

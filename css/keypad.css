@@ -12,7 +12,7 @@
     display: none;
 }
 
-#okBtn {
+#playBtn {
     display:inline-block;
     color:#ccaf8a;
     border:1px solid #CCC;
@@ -20,11 +20,35 @@
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
     cursor:pointer;
     vertical-align:middle;
-    max-width: 100px;
+    max-width: 400px;
     padding: 5px;
+    font-size: 0.8em;
     text-align: center;
     padding-left: 1em;
     padding-right: 1em;
+    
+}
+
+
+#closeBtn {
+    display:inline-block;
+    color:#ccaf8a;
+    border:1px solid #CCC;
+    background:#ad5620;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    max-width: 200px;
+    padding: 5px;
+    font-size: 1em;
+    text-align: center;
+    
+}
+
+
+#codeText {
+    text-align: center;
+    display: none;
     
 }
 
